@@ -1,8 +1,11 @@
 ﻿using System;
+
+using Dawn;
+
 using Microsoft.AspNetCore.Mvc;
 
+using RefactorThis.Data;
 using RefactorThis.Domain;
-using RefactorThis.Models;
 
 namespace RefactorThis.Controllers
 {
@@ -10,6 +13,13 @@ namespace RefactorThis.Controllers
     [ApiController]
     public class ProductsController : ControllerBase
     {
+        private readonly IProductService productService;
+
+        public ProductsController(IProductService productService)
+        {
+            this.productService = Guard.Argument(productService, nameof(productService)).NotNull().Value;
+        }
+
         [HttpGet]
         public Products Get()
         {
@@ -19,9 +29,11 @@ namespace RefactorThis.Controllers
         [HttpGet("{id}")]
         public Product Get(Guid id)
         {
-            var product = new Product(id);
+            var product = Product.Get(id, this.productService);
             if (product.IsNew)
+            {
                 throw new Exception();
+            }
 
             return product;
         }
@@ -44,7 +56,9 @@ namespace RefactorThis.Controllers
             };
 
             if (!orig.IsNew)
+            {
                 orig.Save();
+            }
         }
 
         [HttpDelete("{id}")]
@@ -65,7 +79,9 @@ namespace RefactorThis.Controllers
         {
             var option = new ProductOption(id);
             if (option.IsNew)
+            {
                 throw new Exception();
+            }
 
             return option;
         }
@@ -87,7 +103,9 @@ namespace RefactorThis.Controllers
             };
 
             if (!orig.IsNew)
+            {
                 orig.Save();
+            }
         }
 
         [HttpDelete("{productId}/options/{id}")]
