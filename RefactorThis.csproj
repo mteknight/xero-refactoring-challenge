@@ -13,24 +13,43 @@
 
     <ItemGroup>
       <Compile Remove="RefactorThis.Domain\**" />
+      <Compile Remove="RefactorThis.Tests\**" />
+      <Compile Remove="RefactorThis.Tests.Integration\**" />
     </ItemGroup>
 
     <ItemGroup>
       <EmbeddedResource Remove="RefactorThis.Domain\**" />
+      <EmbeddedResource Remove="RefactorThis.Tests\**" />
+      <EmbeddedResource Remove="RefactorThis.Tests.Integration\**" />
     </ItemGroup>
 
     <ItemGroup>
       <None Remove="RefactorThis.Domain\**" />
+      <None Remove="RefactorThis.Tests\**" />
+      <None Remove="RefactorThis.Tests.Integration\**" />
     </ItemGroup>
 
     <ItemGroup>
       <Content Remove="RefactorThis.Domain\**" />
+      <Content Remove="RefactorThis.Tests\**" />
+      <Content Remove="RefactorThis.Tests.Integration\**" />
     </ItemGroup>
 
     <ItemGroup>
       <_ContentIncludedByDefault Remove="RefactorThis.Domain\obj\project.assets.json" />
       <_ContentIncludedByDefault Remove="RefactorThis.Domain\obj\project.packagespec.json" />
       <_ContentIncludedByDefault Remove="RefactorThis.Domain\obj\RefactorThis.Domain.csproj.nuget.dgspec.json" />
+      <_ContentIncludedByDefault Remove="RefactorThis.Tests\obj\project.assets.json" />
+      <_ContentIncludedByDefault Remove="RefactorThis.Tests\obj\project.packagespec.json" />
+      <_ContentIncludedByDefault Remove="RefactorThis.Tests\obj\RefactorThis.Tests.csproj.nuget.dgspec.json" />
+      <_ContentIncludedByDefault Remove="RefactorThis.Tests\bin\Debug\netcoreapp3.1\appsettings.Development.json" />
+      <_ContentIncludedByDefault Remove="RefactorThis.Tests\bin\Debug\netcoreapp3.1\appsettings.json" />
+      <_ContentIncludedByDefault Remove="RefactorThis.Tests\bin\Debug\netcoreapp3.1\RefactorThis.Tests.deps.json" />
+      <_ContentIncludedByDefault Remove="RefactorThis.Tests\bin\Debug\netcoreapp3.1\RefactorThis.Tests.runtimeconfig.dev.json" />
+      <_ContentIncludedByDefault Remove="RefactorThis.Tests\bin\Debug\netcoreapp3.1\RefactorThis.Tests.runtimeconfig.json" />
+      <_ContentIncludedByDefault Remove="RefactorThis.Tests.Integration\obj\project.assets.json" />
+      <_ContentIncludedByDefault Remove="RefactorThis.Tests.Integration\obj\project.packagespec.json" />
+      <_ContentIncludedByDefault Remove="RefactorThis.Tests.Integration\obj\RefactorThis.Tests.Integration.csproj.nuget.dgspec.json" />
     </ItemGroup>
 
 </Project>
