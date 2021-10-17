@@ -1,5 +1,7 @@
 ﻿using System;
 using Microsoft.AspNetCore.Mvc;
+
+using RefactorThis.Domain;
 using RefactorThis.Models;
 
 namespace RefactorThis.Controllers

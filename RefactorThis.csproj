@@ -11,4 +11,26 @@
         <PackageReference Include="Microsoft.Data.Sqlite" Version="3.0.1" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Compile Remove="RefactorThis.Domain\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Remove="RefactorThis.Domain\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="RefactorThis.Domain\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Remove="RefactorThis.Domain\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="RefactorThis.Domain\obj\project.assets.json" />
+      <_ContentIncludedByDefault Remove="RefactorThis.Domain\obj\project.packagespec.json" />
+      <_ContentIncludedByDefault Remove="RefactorThis.Domain\obj\RefactorThis.Domain.csproj.nuget.dgspec.json" />
+    </ItemGroup>
+
 </Project>
