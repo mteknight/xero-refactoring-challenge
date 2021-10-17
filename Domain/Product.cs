@@ -8,18 +8,6 @@ namespace RefactorThis.Domain
 {
     public class Product
     {
-        public Guid Id { get; set; }
-
-        public string Name { get; set; }
-
-        public string Description { get; set; }
-
-        public decimal Price { get; set; }
-
-        public decimal DeliveryPrice { get; set; }
-
-        [JsonIgnore] public bool IsNew { get; }
-
         public Product()
         {
             this.Id = Guid.NewGuid();
@@ -36,7 +24,9 @@ namespace RefactorThis.Domain
 
             var rdr = cmd.ExecuteReader();
             if (!rdr.Read())
+            {
                 return;
+            }
 
             this.IsNew = false;
             this.Id = Guid.Parse(rdr["Id"].ToString());
@@ -45,6 +35,18 @@ namespace RefactorThis.Domain
             this.Price = decimal.Parse(rdr["Price"].ToString());
             this.DeliveryPrice = decimal.Parse(rdr["DeliveryPrice"].ToString());
         }
+
+        public Guid Id { get; set; }
+
+        public string Name { get; set; }
+
+        public string Description { get; set; }
+
+        public decimal Price { get; set; }
+
+        public decimal DeliveryPrice { get; set; }
+
+        [JsonIgnore] public bool IsNew { get; }
 
         public void Save()
         {
@@ -63,7 +65,9 @@ namespace RefactorThis.Domain
         public void Delete()
         {
             foreach (var option in new ProductOptions(this.Id).Items)
+            {
                 option.Delete();
+            }
 
             var conn = Helpers.NewConnection();
             conn.Open();
